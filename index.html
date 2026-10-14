@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion & Pixels | Creative Portfolio</title>
+
+  <meta name="description" content="A creative portfolio showcasing graphic design, illustration and motion graphics.">
+
+  <style>
+    :root {
+      --bg: #21152B;
+      --accent: #B8A1FF;
+      --text: #F8F5FC;
+      --card: #40314F;
+      --muted: #C4BDCC;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 90px 8%;
+      background:
+        radial-gradient(ellipse at 85% 30%,
+        rgba(184,161,255,0.15), transparent 45%);
+    }
+
+    .tag {
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.8rem);
+      line-height: 1.08;
+      max-width: 900px;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 580px;
+      margin: 25px 0 30px;
+      font-size: 1.05rem;
+    }
+
+    .button {
+      display: inline-block;
+      width: fit-content;
+      background: var(--accent);
+      color: #21152B;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(184,161,255,0.25);
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .light-section {
+      background: #F8F5FC;
+      color: #21152B;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      margin-bottom: 35px;
+    }
+
+    .light-section .section-description {
+      color: #62596B;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .project-card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: 14px;
+      min-height: 190px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .skill {
+      border: 1px solid #D8CBEA;
+      padding: 10px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+
+    .contact-box {
+      background: var(--card);
+      padding: 35px;
+      border-radius: 16px;
+      margin-top: 25px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin: 12px 0 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 750px) {
+      header {
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      nav {
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding: 75px 5%;
+        min-height: 70vh;
+      }
+
+      section {
+        padding: 60px 5%;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="#home" class="logo">Motion<span>&</span>Pixels.</a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#work">My Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="tag">Creative Designer & Visual Storyteller</div>
+
+      <h1>
+        Ideas into<br>
+        <span>Visual Stories.</span>
+      </h1>
+
+      <p>
+        Welcome to my creative space. I explore graphic design,
+        illustration and motion graphics to turn ideas into
+        meaningful visual experiences.
+      </p>
+
+      <a href="#work" class="button">Explore My Work ↗</a>
+    </section>
+
+    <section class="light-section" id="work">
+      <div class="reveal">
+        <div class="tag">Selected Categories</div>
+        <h2 class="section-title">My Creative Playground.</h2>
+        <p class="section-description">
+          A collection of my creative interests and projects.
+        </p>
+      </div>
+
+      <div class="projects">
+        <article class="project-card reveal">
+          <div class="project-icon">🎨</div>
+          <h3>Graphic Design</h3>
+          <p>Posters, typography, digital compositions and visual concepts.</p>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-icon">✏️</div>
+          <h3>Illustration</h3>
+          <p>Character design, flat illustrations and imaginative artwork.</p>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-icon">🎬</div>
+          <h3>Motion Graphics</h3>
+          <p>Animation experiments, motion design and visual storytelling.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="reveal">
+        <div class="tag">A Little About Me</div>
+        <h2 class="section-title">Creativity meets curiosity.</h2>
+
+        <p class="section-description">
+          I am building my creative skills and exploring new ways
+          to communicate ideas through design, illustration and animation.
+          This portfolio is a space to showcase my learning and growth.
+        </p>
+
+        <div class="skills">
+          <span class="skill">Adobe Photoshop</span>
+          <span class="skill">Adobe Illustrator</span>
+          <span class="skill">Adobe After Effects</span>
+          <span class="skill">HTML & CSS</span>
+          <span class="skill">JavaScript</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="light-section" id="contact">
+      <div class="reveal">
+        <div class="tag">Let's Connect</div>
+        <h2 class="section-title">Have a creative idea?</h2>
+
+        <div class="contact-box">
+          <h3>Let's make something meaningful.</h3>
+          <p>
+            Interested in my work? You can connect with me
+            through my creative profiles.
+          </p>
+          <a class="button"
+             href="https://github.com/MotionandPixels"
+             target="_blank"
+             rel="noopener noreferrer">
+            Visit My GitHub ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Motion & Pixels. Made with creativity.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+  </script>
+
+</body>
+</html>
