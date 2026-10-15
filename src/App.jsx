@@ -1463,3 +1463,4 @@ function EasyEditorModal({ portfolioData, onClose }) {
     </div>
   );
 }
+export default App;
