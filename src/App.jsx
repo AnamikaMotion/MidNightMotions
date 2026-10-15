@@ -1396,7 +1396,7 @@ function ProjectDetailModal({ project, onClose }) {
 function EasyEditorModal({ portfolioData, onClose }) {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyConfig = () => {
+  
     navigator.clipboard.writeText(JSON.stringify(portfolioData, null, 2));
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
