@@ -1458,11 +1458,9 @@ function EasyEditorModal({ portfolioData, onClose }) {
             {JSON.stringify(portfolioData, null, 2)}
           </pre>
         </div>
-
       </div>
     </div>
   );
 }
-
 
 export default App;
