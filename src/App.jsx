@@ -26,8 +26,10 @@ const PORTFOLIO_DATA = {
     },
     socials: {
       behance: "https://behance.net",
+      dribbble: "https://dribbble.net",
       instagram: "https://instagram.com",
       youtube: "https://youtube.com",
+      vimeo: "https://vimeo.com"
     }
   },
 
@@ -45,13 +47,12 @@ const PORTFOLIO_DATA = {
     { id: 'aftereffects', name: 'After Effects & Motion' },
     { id: 'illustrator', name: 'Vector & Illustrator' },
     { id: 'photoshop', name: 'Photoshop & Design' }
-    id: 'photoshop', name: 'ComfyUI' }
   ],
 
   projects: [
     {
       id: 'proj-1',
-      title: '2D RIG',
+      title: 'CYBER BLOB 2D RIG',
       category: 'aftereffects',
       categoryLabel: 'After Effects & Motion',
       software: ['After Effects', 'Illustrator', 'Krita'],
@@ -63,7 +64,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: 'proj-2',
-      title: 'KINETIC SYSTEM',
+      title: 'ACID BOT KINETIC SYSTEM',
       category: 'illustrator',
       categoryLabel: 'Vector & Illustrator',
       software: ['Illustrator', 'Photoshop'],
