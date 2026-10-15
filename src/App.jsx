@@ -4,7 +4,7 @@ import {
   Layers, Palette, Cpu, Film, ExternalLink, ChevronRight, X, 
   Sliders, Download, Mail, ArrowUpRight, Check, Heart, Eye, 
   Code2, Info, RefreshCw, Zap, Move, Smile, Star, Circle, Compass,
-  Monitor, Smartphone, PenTool, MousePointer, Quote
+  Monitor, Smartphone, PenTool, MousePointer, Quote, Gamepad2
 } from 'lucide-react';
 
 /* ==========================================================================
@@ -20,17 +20,14 @@ const PORTFOLIO_DATA = {
     availability: "Open for Motion Graphics & Visual Commissions",
     location: "Global / Remote Studio",
     email: "hello@anamikamotion.design",
-    quotes: [
-      { text: "Animation is not the art of drawings that move, but the art of movements that are drawn.", author: "Norman McLaren" },
-      { text: "Design is thinking made visual, but Motion is emotion made unforgettable.", author: "Anamika Patel" },
-      { text: "Simplicity is about subtracting the obvious and adding the meaningful.", author: "John Maeda" }
-    ],
+    quote: {
+      text: "Animation is not the art of drawings that move, but the art of movements that are drawn.",
+      author: "Norman McLaren"
+    },
     socials: {
       behance: "https://behance.net",
-      dribbble: "https://dribbble.net",
       instagram: "https://instagram.com",
       youtube: "https://youtube.com",
-      vimeo: "https://vimeo.com"
     }
   },
 
@@ -47,15 +44,14 @@ const PORTFOLIO_DATA = {
     { id: 'all', name: 'All Work' },
     { id: 'aftereffects', name: 'After Effects & Motion' },
     { id: 'illustrator', name: 'Vector & Illustrator' },
-    { id: 'photoshop', name: 'Photoshop & Design' },
-    { id: 'premiere', name: 'Video & Editing' },
-    { id: 'krita', name: '2D Frame Anim' }
+    { id: 'photoshop', name: 'Photoshop & Design' }
+    id: 'photoshop', name: 'ComfyUI' }
   ],
 
   projects: [
     {
       id: 'proj-1',
-      title: 'CYBER BLOB 2D RIG',
+      title: '2D RIG',
       category: 'aftereffects',
       categoryLabel: 'After Effects & Motion',
       software: ['After Effects', 'Illustrator', 'Krita'],
@@ -63,14 +59,11 @@ const PORTFOLIO_DATA = {
       featured: true,
       description: 'Fluid 2D character animation with custom expression rigs and bouncy spring dynamics.',
       coverSvgType: 'blob-character',
-      videoDuration: '0:14',
-      fps: '60 FPS',
-      client: 'Character Motion Experiment',
-      details: 'Built in Illustrator and animated frame-by-frame using custom expression controllers in After Effects.'
+      client: 'Character Motion Experiment'
     },
     {
       id: 'proj-2',
-      title: 'ACID BOT KINETIC SYSTEM',
+      title: 'KINETIC SYSTEM',
       category: 'illustrator',
       categoryLabel: 'Vector & Illustrator',
       software: ['Illustrator', 'Photoshop'],
@@ -78,25 +71,7 @@ const PORTFOLIO_DATA = {
       featured: true,
       description: 'Geometric 2D vector robot design using high-contrast neon tones and clean grid layouts.',
       coverSvgType: 'vector-robot',
-      videoDuration: 'Static Vector',
-      fps: 'Vector',
-      client: 'Brand Mascot Concept',
-      details: 'Precision vector illustration exploring cute shapes, flat shading, and modular facial expressions.'
-    },
-    {
-      id: 'proj-3',
-      title: 'TYPO DISRUPT MOTION',
-      category: 'aftereffects',
-      categoryLabel: 'After Effects & Motion',
-      software: ['After Effects', 'Premiere Pro'],
-      year: '2025',
-      featured: false,
-      description: 'Expressive kinetic typography synchronized to rhythmic beats and frame-by-frame glitch accents.',
-      coverSvgType: 'kinetic-typo',
-      videoDuration: '0:30',
-      fps: '60 FPS',
-      client: 'Motion Editorial Test',
-      details: 'Fast-paced text animator setup combined with audio beat detection and chromatic aberration overlays.'
+      client: 'Brand Mascot Concept'
     }
   ],
 
@@ -104,8 +79,7 @@ const PORTFOLIO_DATA = {
     { name: "After Effects & Motion Graphics", level: 95 },
     { name: "Illustrator & Cute Vector Art", level: 92 },
     { name: "Photoshop & Visual Design", level: 90 },
-    { name: "Premiere Pro & Video Editing", level: 88 },
-    { name: "Krita & 2D Frame Animation", level: 85 }
+    { name: "Premiere Pro & Video Editing", level: 88 }
   ]
 };
 
@@ -143,11 +117,6 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Montserrat', sans-serif; background-color: #0A0B10; color: #F3F4F6; }
-        @keyframes subtleGlow {
-          0%, 100% { filter: drop-shadow(0 0 12px rgba(45, 91, 255, 0.4)); }
-          50% { filter: drop-shadow(0 0 22px rgba(204, 255, 0, 0.6)); }
-        }
-        .animate-glow { animation: subtleGlow 4s infinite ease-in-out; }
         @keyframes floatBlob {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-12px) rotate(4deg); }
@@ -163,17 +132,17 @@ export default function App() {
               <CuteMascotLogo mousePos={mousePos} />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-base sm:text-lg tracking-wider text-white flex items-center gap-1.5">
+              <span className="font-extrabold text-sm sm:text-lg tracking-wider text-white flex items-center gap-1.5">
                 Anamika's <span className="text-[#CCFF00]">MidNight Motion</span>
               </span>
               <span className="text-[9px] tracking-widest text-[#2D5BFF] uppercase font-bold">Motion Graphic Designer</span>
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8 bg-[#12141F]/80 px-6 py-2.5 rounded-full border border-[#2D5BFF]/30 backdrop-blur-sm">
+          <nav className="hidden md:flex items-center gap-6 bg-[#12141F]/80 px-6 py-2.5 rounded-full border border-[#2D5BFF]/30 backdrop-blur-sm">
             {[
               { id: 'work', label: 'WORK' },
-              { id: 'playground', label: 'CUTE CANVAS GAME' },
+              { id: 'snake-game', label: 'SNAKE GAME & SHAPES' },
               { id: 'skills', label: 'SKILLS' },
               { id: 'about', label: 'ABOUT ME' },
               { id: 'contact', label: 'CONTACT' }
@@ -221,8 +190,8 @@ export default function App() {
             <div className="p-4 rounded-2xl bg-[#12141F] border border-[#2D5BFF]/30 flex items-start gap-3 max-w-xl">
               <Quote className="text-[#CCFF00] shrink-0 mt-1" size={20} />
               <div>
-                <p className="text-xs italic text-gray-200 font-medium">"{PORTFOLIO_DATA.studio.quotes[1].text}"</p>
-                <span className="text-[10px] text-[#2D5BFF] font-bold uppercase mt-1 block">— {PORTFOLIO_DATA.studio.quotes[1].author}</span>
+                <p className="text-xs italic text-gray-200 font-medium">"{PORTFOLIO_DATA.studio.quote.text}"</p>
+                <span className="text-[10px] text-[#2D5BFF] font-bold uppercase mt-1 block">— {PORTFOLIO_DATA.studio.quote.author}</span>
               </div>
             </div>
 
@@ -236,11 +205,11 @@ export default function App() {
               </a>
 
               <a
-                href="#playground"
+                href="#snake-game"
                 className="px-8 py-4 rounded-xl bg-[#12141F] border-2 border-[#2D5BFF] text-white font-bold text-xs tracking-wider hover:border-[#CCFF00] transition-all flex items-center gap-2"
               >
-                <span>PLAY CUTE GAME</span>
-                <Smile size={16} className="text-[#CCFF00]" />
+                <span>PLAY SNAKE GAME</span>
+                <Gamepad2 size={16} className="text-[#CCFF00]" />
               </a>
             </div>
           </div>
@@ -255,22 +224,22 @@ export default function App() {
         </div>
       </section>
 
-      {/* CUTE SHAPE CANVAS GAME SECTION */}
-      <section id="playground" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#2D5BFF]/20">
+      {/* SNAKE RUN & CUTE SHAPES CANVAS GAME SECTION */}
+      <section id="snake-game" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#2D5BFF]/20">
         <div className="mb-8">
           <div className="inline-flex items-center gap-2 text-[#CCFF00] font-bold text-xs tracking-widest uppercase mb-2">
-            <Smile size={16} />
-            <span>INTERACTIVE MINI GAME</span>
+            <Gamepad2 size={16} />
+            <span>INTERACTIVE ARCADE MINI-GAME</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-            CUTE SHAPE <span className="text-[#2D5BFF]">PLAYGROUND</span>
+            SNAKE RUN & <span className="text-[#2D5BFF]">CUTE SHAPES</span>
           </h2>
           <p className="text-gray-400 text-sm mt-1">
-            Canvas par click karke cute geometric characters spawn karein aur unke expression & color change karein!
+            Arrow keys ka use karke Snake ko control karein, balls khayein, score badhayein, ya fir canvas par click karke cute shapes spawn karein!
           </p>
         </div>
 
-        <CuteShapeGame />
+        <CanvasSnakeGame />
       </section>
 
       {/* PORTFOLIO WORK SECTION */}
@@ -300,7 +269,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
@@ -325,7 +294,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ABOUT ME & CREATIVE QUOTES */}
+      {/* ABOUT ME SECTION */}
       <section id="about" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#2D5BFF]/20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-4">
@@ -334,22 +303,18 @@ export default function App() {
               PASSIONATE <span className="text-[#2D5BFF]">MOTION DESIGNER</span>
             </h2>
             <p className="text-sm text-gray-300 leading-relaxed">
-              Hi, I am Anamika! A passionate Motion Graphic Designer dedicated to turning static visual concepts into fluid, emotional storytelling.
+              Hi, I am Anamika! A professional Motion Graphic Designer dedicated to turning static visual concepts into fluid, emotional storytelling under **Anamika's MidNight Motion** studio.
             </p>
             <p className="text-xs text-gray-400 leading-relaxed">
-              My creative process blends cute character graphics, rhythmic keyframe animation, vector grid layouts, and expressive motion kinetics to deliver impactful visual identity experiences.
+              My design workflow combines vector precision, cute 2D character physics, and rhythmic kinetic typography to build striking visual identities.
             </p>
 
-            <div className="space-y-3 pt-2">
-              {PORTFOLIO_DATA.studio.quotes.map((q, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-[#12141F] border border-white/5 flex items-start gap-3">
-                  <Quote size={16} className="text-[#CCFF00] shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-xs text-gray-200 italic font-medium">"{q.text}"</p>
-                    <span className="text-[10px] text-[#2D5BFF] font-bold uppercase block mt-1">— {q.author}</span>
-                  </div>
-                </div>
-              ))}
+            <div className="p-4 rounded-xl bg-[#12141F] border border-white/5 flex items-start gap-3 mt-4">
+              <Quote size={18} className="text-[#CCFF00] shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs text-gray-200 italic font-medium">"{PORTFOLIO_DATA.studio.quote.text}"</p>
+                <span className="text-[10px] text-[#2D5BFF] font-bold uppercase block mt-1">— {PORTFOLIO_DATA.studio.quote.author}</span>
+              </div>
             </div>
           </div>
 
@@ -366,7 +331,7 @@ export default function App() {
         <div className="bg-[#12141F] rounded-3xl border-2 border-[#2D5BFF]/30 p-8 text-center space-y-4 max-w-2xl mx-auto">
           <span className="text-[#CCFF00] font-bold text-xs tracking-widest uppercase">LET'S CONNECT</span>
           <h2 className="text-3xl font-extrabold text-white">START A PROJECT WITH ANAMIKA</h2>
-          <p className="text-xs text-gray-300">Have a motion graphic brief or creative project? Send an email and let's bring it to life.</p>
+          <p className="text-xs text-gray-300">Have a motion graphic brief or creative project? Send an email and let's collaborate.</p>
           <a
             href={`mailto:${PORTFOLIO_DATA.studio.email}`}
             className="inline-block px-8 py-3.5 rounded-xl bg-[#CCFF00] text-[#0A0B10] font-extrabold text-xs tracking-wider"
@@ -385,7 +350,7 @@ export default function App() {
 }
 
 /* ==========================================================================
-   SUB-COMPONENTS: CUTE MASCOT & CANVAS GAME
+   SUB-COMPONENTS: CUTE MASCOT & SNAKE/SHAPES CANVAS GAME
    ========================================================================== */
 
 function CuteMascotLogo({ mousePos, isLarge = false }) {
@@ -412,15 +377,22 @@ function CuteMascotLogo({ mousePos, isLarge = false }) {
   );
 }
 
-function CuteShapeGame() {
+function CanvasSnakeGame() {
   const canvasRef = useRef(null);
+  const [score, setScore] = useState(0);
+  const [gameRunning, setGameRunning] = useState(false);
   const [shapes, setShapes] = useState([
-    { id: 1, x: 150, y: 140, radius: 40, color: '#2D5BFF', expression: 'happy' },
-    { id: 2, x: 350, y: 160, radius: 45, color: '#CCFF00', expression: 'wink' },
-    { id: 3, x: 550, y: 140, radius: 38, color: '#FF5588', expression: 'surprised' }
+    { x: 120, y: 120, radius: 35, color: '#2D5BFF', expression: 'happy' },
+    { x: 280, y: 180, radius: 40, color: '#CCFF00', expression: 'wink' },
+    { x: 450, y: 100, radius: 35, color: '#FF5588', expression: 'surprised' }
   ]);
-  const [selectedColor, setSelectedColor] = useState('#2D5BFF');
-  const [activeExpression, setActiveExpression] = useState('happy');
+
+  // Snake state reference
+  const snakeRef = useRef({
+    body: [{ x: 100, y: 100 }, { x: 90, y: 100 }, { x: 80, y: 100 }],
+    dir: 'RIGHT',
+    food: { x: 200, y: 200 }
+  });
 
   const handleCanvasClick = (e) => {
     const canvas = canvasRef.current;
@@ -432,120 +404,145 @@ function CuteShapeGame() {
     setShapes(prev => [
       ...prev,
       {
-        id: Date.now(),
         x,
         y,
-        radius: Math.floor(Math.random() * 15) + 35,
-        color: selectedColor,
-        expression: activeExpression
+        radius: Math.floor(Math.random() * 15) + 30,
+        color: ['#2D5BFF', '#CCFF00', '#FF5588', '#00E5FF'][Math.floor(Math.random() * 4)],
+        expression: ['happy', 'wink', 'surprised'][Math.floor(Math.random() * 3)]
       }
     ]);
   };
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const handleKeyDown = (e) => {
+      const dir = snakeRef.current.dir;
+      if (e.key === 'ArrowUp' && dir !== 'DOWN') snakeRef.current.dir = 'UP';
+      if (e.key === 'ArrowDown' && dir !== 'UP') snakeRef.current.dir = 'DOWN';
+      if (e.key === 'ArrowLeft' && dir !== 'RIGHT') snakeRef.current.dir = 'LEFT';
+      if (e.key === 'ArrowRight' && dir !== 'LEFT') snakeRef.current.dir = 'RIGHT';
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = 320;
+  useEffect(() => {
+    let interval;
+    if (gameRunning) {
+      interval = setInterval(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const snake = snakeRef.current;
 
-    ctx.fillStyle = '#0A0B10';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = 340;
 
-    // Draw Grid
-    ctx.strokeStyle = 'rgba(45, 91, 255, 0.12)';
-    ctx.lineWidth = 1;
-    for (let x = 0; x < canvas.width; x += 30) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, canvas.height);
-      ctx.stroke();
+        // Move snake head
+        let head = { ...snake.body[0] };
+        if (snake.dir === 'UP') head.y -= 15;
+        if (snake.dir === 'DOWN') head.y += 15;
+        if (snake.dir === 'LEFT') head.x -= 15;
+        if (snake.dir === 'RIGHT') head.x += 15;
+
+        // Wrap around borders
+        if (head.x < 0) head.x = canvas.width - 15;
+        if (head.x >= canvas.width) head.x = 0;
+        if (head.y < 0) head.y = canvas.height - 15;
+        if (head.y >= canvas.height) head.y = 0;
+
+        // Check food collision
+        const dist = Math.hypot(head.x - snake.food.x, head.y - snake.food.y);
+        if (dist < 20) {
+          setScore(s => s + 1);
+          snake.food = {
+            x: Math.floor(Math.random() * (canvas.width - 40)) + 20,
+            y: Math.floor(Math.random() * (canvas.height - 40)) + 20
+          };
+        } else {
+          snake.body.pop();
+        }
+
+        snake.body.unshift(head);
+
+        // Render Canvas
+        ctx.fillStyle = '#0A0B10';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw grid
+        ctx.strokeStyle = 'rgba(45, 91, 255, 0.1)';
+        for (let x = 0; x < canvas.width; x += 30) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+        }
+
+        // Draw cute background shapes
+        shapes.forEach(s => {
+          ctx.save();
+          ctx.translate(s.x, s.y);
+          ctx.fillStyle = s.color;
+          ctx.beginPath();
+          ctx.arc(0, 0, s.radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = '#F3F4F6'; ctx.lineWidth = 2; ctx.stroke();
+          ctx.restore();
+        });
+
+        // Draw food ball
+        ctx.fillStyle = '#CCFF00';
+        ctx.beginPath();
+        ctx.arc(snake.food.x, snake.food.y, 8, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 10; ctx.shadowColor = '#CCFF00';
+
+        // Draw Snake Body
+        snake.body.forEach((seg, idx) => {
+          ctx.fillStyle = idx === 0 ? '#CCFF00' : '#2D5BFF';
+          ctx.beginPath();
+          ctx.arc(seg.x, seg.y, 8, 0, Math.PI * 2);
+          ctx.fill();
+        });
+      }, 100);
     }
-    for (let y = 0; y < canvas.height; y += 30) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(canvas.width, y);
-      ctx.stroke();
-    }
-
-    shapes.forEach(s => {
-      ctx.save();
-      ctx.translate(s.x, s.y);
-
-      ctx.fillStyle = s.color;
-      ctx.beginPath();
-      ctx.arc(0, 0, s.radius, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.strokeStyle = '#F3F4F6';
-      ctx.lineWidth = 3;
-      ctx.stroke();
-
-      ctx.fillStyle = '#0A0B10';
-      ctx.beginPath();
-      ctx.arc(-s.radius * 0.3, -s.radius * 0.1, 5, 0, Math.PI * 2);
-      ctx.arc(s.radius * 0.3, -s.radius * 0.1, 5, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.strokeStyle = '#0A0B10';
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      if (s.expression === 'happy') {
-        ctx.arc(0, s.radius * 0.1, 10, 0, Math.PI);
-      } else if (s.expression === 'surprised') {
-        ctx.arc(0, s.radius * 0.2, 6, 0, Math.PI * 2);
-      } else {
-        ctx.moveTo(-8, s.radius * 0.2);
-        ctx.lineTo(8, s.radius * 0.2);
-      }
-      ctx.stroke();
-
-      ctx.restore();
-    });
-  }, [shapes, selectedColor, activeExpression]);
+    return () => clearInterval(interval);
+  }, [gameRunning, shapes]);
 
   return (
     <div className="bg-[#12141F] rounded-3xl border-2 border-[#2D5BFF]/30 p-5 space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-4 bg-[#0A0B10] p-3.5 rounded-2xl border border-white/5">
         <div className="flex items-center gap-3">
-          <span className="text-xs font-bold text-gray-400">COLOR:</span>
-          {['#2D5BFF', '#CCFF00', '#FF5588', '#00E5FF'].map(col => (
-            <button
-              key={col}
-              onClick={() => setSelectedColor(col)}
-              className={`w-6 h-6 rounded-full ${selectedColor === col ? 'ring-2 ring-white scale-110' : ''}`}
-              style={{ backgroundColor: col }}
-            />
-          ))}
+          <span className="text-xs font-bold text-[#CCFF00] font-mono">SCORE: {score}</span>
+          <span className="text-xs text-gray-400">| Use Arrow Keys to play Snake</span>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-xs font-bold text-gray-400">FACE:</span>
-          {['happy', 'surprised', 'wink'].map(exp => (
-            <button
-              key={exp}
-              onClick={() => setActiveExpression(exp)}
-              className={`px-2.5 py-1 rounded text-[11px] font-bold uppercase ${activeExpression === exp ? 'bg-[#CCFF00] text-[#0A0B10]' : 'bg-[#181A2A] text-gray-300'}`}
-            >
-              {exp}
-            </button>
-          ))}
+          <button
+            onClick={() => setGameRunning(!gameRunning)}
+            className={`px-4 py-1.5 rounded-lg text-xs font-bold ${gameRunning ? 'bg-red-500/20 text-red-400 border border-red-500/30' : 'bg-[#CCFF00] text-[#0A0B10]'}`}
+          >
+            {gameRunning ? 'PAUSE GAME' : 'START SNAKE GAME'}
+          </button>
+          <button
+            onClick={() => setShapes([])}
+            className="px-3 py-1.5 rounded-lg bg-[#181A2A] text-gray-300 text-xs font-bold"
+          >
+            CLEAR SHAPES
+          </button>
         </div>
-
-        <button
-          onClick={() => setShapes([])}
-          className="px-3 py-1 rounded bg-red-500/20 text-red-400 text-xs font-bold"
-        >
-          CLEAR
-        </button>
       </div>
 
       <div className="relative rounded-2xl overflow-hidden border border-[#2D5BFF]/40 cursor-crosshair">
         <canvas ref={canvasRef} onClick={handleCanvasClick} className="w-full block" />
-        <div className="absolute bottom-3 right-3 bg-[#0A0B10]/80 px-2.5 py-1 rounded text-[10px] font-mono text-gray-400">
-          SPAWNED: {shapes.length} | CLICK CANVAS TO ADD
-        </div>
+        {!gameRunning && (
+          <div className="absolute inset-0 bg-[#0A0B10]/80 backdrop-blur-xs flex flex-col items-center justify-center space-y-3">
+            <Gamepad2 size={40} className="text-[#CCFF00] animate-bounce" />
+            <p className="text-sm font-bold text-white">Click "START SNAKE GAME" or click anywhere to spawn shapes!</p>
+            <button
+              onClick={() => setGameRunning(true)}
+              className="px-6 py-2.5 rounded-xl bg-[#CCFF00] text-[#0A0B10] font-extrabold text-xs"
+            >
+              PLAY NOW
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
