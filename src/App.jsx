@@ -25,62 +25,65 @@ import {
   Trophy,
   Zap,
   Eye,
-  Info
+  Info,
+  Palette,
+  Cpu,
+  Brush
 } from 'lucide-react';
 
-// --- PORTFOLIO DATA (2D MOTION DESIGN & VFX) ---
+// --- PORTFOLIO DATA (2D MOTION DESIGN & CREATIVE ART) ---
 const PORTFOLIO_ITEMS = [
   {
     id: 'cyber-title-sequence',
     title: 'Neon Cyberpunk Title Sequence',
     category: 'Title Sequences',
-    software: ['After Effects', 'Photoshop'],
+    software: ['After Effects', 'Photoshop', 'Krita'],
     client: 'CyberMedia Studios',
     duration: '0:45',
     fps: 60,
     renderTime: '1.5 hrs',
     thumbnail: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80',
-    description: 'Dynamic kinetic typography integrated with custom glitched vector overlays and neon color grading.',
-    details: 'Utilized custom expression selectors in Adobe After Effects for glitch text animations, paired with frame-by-frame Photoshop brush overlays for organic cyber textures.'
+    description: 'Dynamic kinetic typography integrated with custom glitched vector overlays and digital painting brushes.',
+    details: 'Utilized custom expression selectors in Adobe After Effects for glitch text animations, paired with hand-painted textures in Krita and Photoshop brush overlays.'
+  },
+  {
+    id: 'digital-painting-matte',
+    title: 'Fantasy Environment Digital Painting',
+    category: 'Digital Art',
+    software: ['Krita', 'Photoshop', 'ComfyUI'],
+    client: 'Creative Studio Project',
+    duration: 'Static / 2D Pass',
+    fps: 30,
+    renderTime: 'Real-time',
+    thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80',
+    description: 'Concept digital artwork created with Krita custom brushes and refined through ComfyUI neural workflow enhancement.',
+    details: 'Initial composition sketched in Krita, enhanced with ComfyUI node-based texture generation, and color-graded in Photoshop.'
+  },
+  {
+    id: 'vfx-sci-fi-hud',
+    title: 'Sci-Fi HUD Compositing & Tracking',
+    category: 'VFX & Compositing',
+    software: ['After Effects', 'Premiere Pro', 'Illustrator'],
+    client: 'FutureTech Labs',
+    duration: '1:10',
+    fps: 60,
+    renderTime: '2.2 hrs',
+    thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80',
+    description: 'Planar tracking and UI HUD element compositing onto live-action video footage with precise vector paths.',
+    details: 'Designed vector elements in Illustrator, executed 3D camera tracking in After Effects, compositing multi-pass HUD layers with glow dissipation.'
   },
   {
     id: 'fluid-logo-animation',
-    title: 'Organic Fluid Logo Motion',
+    title: 'Organic Fluid Vector Logo Motion',
     category: 'Logo Motion',
     software: ['After Effects', 'Illustrator'],
     client: 'Aura Organic Brand',
     duration: '0:15',
     fps: 30,
     renderTime: '25 mins',
-    thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80',
+    thumbnail: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1000&q=80',
     description: 'Smooth vector morphing and fluid liquid dynamics animation created entirely with 2D shape layers.',
     details: 'Crafted with complex path morphing techniques and custom speed graphs in After Effects for ultra-smooth easing curves.'
-  },
-  {
-    id: 'vfx-sci-fi-hud',
-    title: 'Sci-Fi HUD Compositing & Tracking',
-    category: 'VFX & Compositing',
-    software: ['After Effects', 'Premiere Pro'],
-    client: 'FutureTech Labs',
-    duration: '1:10',
-    fps: 60,
-    renderTime: '2.2 hrs',
-    thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80',
-    description: 'Planar tracking and UI HUD element compositing onto live-action video footage with color match.',
-    details: 'Executed 3D camera tracking in After Effects, compositing multi-pass HUD layers with glow dissipation and optical flare accents.'
-  },
-  {
-    id: 'character-walk-cycle',
-    title: '2D Vector Character Walk Cycle',
-    category: '2D Motion',
-    software: ['After Effects', 'Illustrator'],
-    client: 'Indie Game Studio',
-    duration: '0:30',
-    fps: 24,
-    renderTime: '40 mins',
-    thumbnail: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1000&q=80',
-    description: 'Rigged vector character walk animation featuring natural secondary motion and expressive keyframing.',
-    details: 'Rigged using Duik Angela in AE, featuring custom limb IK structures and subtle cloth secondary bounce dynamics.'
   },
   {
     id: 'kinetic-typography',
@@ -116,46 +119,55 @@ const SOFTWARE_DATA = [
     id: 'after-effects',
     name: 'After Effects',
     icon: Layers,
-    badge: 'Core Tool',
-    tagline: 'Motion Graphics, Rigging & Compositing',
-    stats: { projects: '120+', mastery: '98%', keyTech: 'Duik, Expressions, Lottie' },
-    description: 'My primary powerhouse for 2D animation, kinetic typography, character rigging, and high-end compositing.',
-    features: ['Expression-driven automation', 'Vector character rigging with Duik', 'Lottie JSON exports for Web & Apps', 'Glitch & VFX compositing']
+    badge: 'Motion Graphics',
+    tagline: '2D Animation & Compositing',
+    stats: { projects: '120+', mastery: '98%', keyTech: 'Expressions, Rigging, Lottie' },
+    description: 'Core tool for dynamic 2D motion graphics, kinetic typography, character rigging, and high-pacing video transitions.',
+    features: ['Expression-driven animation automation', 'Vector character rigging', 'Lottie JSON web exports', 'High-end compositing & tracking']
   },
   {
-    id: 'premiere-pro',
-    name: 'Premiere Pro',
-    icon: Video,
-    badge: 'Video Editing',
-    tagline: 'Timeline Editing & Sound Design',
-    stats: { projects: '85+', mastery: '92%', keyTech: 'Lumetri Color, Essential Sound' },
-    description: 'Essential for high-pacing video edit sequences, audio beat-syncing, color grading, and showreel assembly.',
-    features: ['Precision video trimming & pacing', 'Multitrack sound design & SFX', 'Lumetri cinematic color grading', 'Dynamic Link with After Effects']
+    id: 'photoshop-krita',
+    name: 'Photoshop & Krita',
+    icon: Brush,
+    badge: 'Digital Painting',
+    tagline: 'Concept Art & Frame-by-Frame Accents',
+    stats: { projects: '150+', mastery: '95%', keyTech: 'Custom Brushes, Layering' },
+    description: 'Primary digital painting environments used for concept illustration, custom texture painting, asset preparation, and frame-by-frame accents.',
+    features: ['Digital painting & sketch illustration', 'Frame-by-frame brush animations', 'Asset matte cutting & photo retouching', 'Custom texture brush generation']
   },
   {
     id: 'illustrator',
     name: 'Illustrator',
     icon: PenTool,
     badge: 'Vector Art',
-    tagline: 'Illustration & Asset Preparation',
-    stats: { projects: '150+', mastery: '95%', keyTech: 'Vector Paths, Layer Prep' },
-    description: 'Where all 2D motion graphics begin—building ultra-clean vector assets structured specifically for AE animation.',
-    features: ['Clean path layout for path-morphing', 'Strict layer hierarchy for quick rigging', 'Custom icon & logo vector creation', 'Scalable UI components']
+    tagline: 'Precision Vector Layouts',
+    stats: { projects: '140+', mastery: '96%', keyTech: 'Precision Paths, Layer Prep' },
+    description: 'Crafting clean, scalable vector assets structured specifically for seamless path-morphing and rigging in After Effects.',
+    features: ['Clean vector path layout', 'Layer hierarchy for quick motion rigging', 'Custom typography & iconography', 'Scalable UI components']
   },
   {
-    id: 'photoshop',
-    name: 'Photoshop',
-    icon: ImageIcon,
-    badge: 'Asset Prep',
-    tagline: 'Frame-by-Frame Brush Accents',
-    stats: { projects: '90+', mastery: '90%', keyTech: 'Hand-drawn FX, Textures' },
-    description: 'Used for texture matte creation, photo-manipulation asset prep, and frame-by-frame brush accents.',
-    features: ['Hand-drawn frame-by-frame accents', 'Seamless texture generation', 'Matte extraction & retouching', 'Storyboard sketch design']
+    id: 'comfyui',
+    name: 'ComfyUI',
+    icon: Cpu,
+    badge: 'AI Creative Node',
+    tagline: 'Node-Based Generative Workflows',
+    stats: { projects: '60+', mastery: '88%', keyTech: 'ControlNet, Custom Nodes' },
+    description: 'Integrating node-based AI pipelines to generate creative textures, iterate concept variations, and enhance digital artwork pipelines.',
+    features: ['Node-based generative image pipelines', 'ControlNet precise pose guidance', 'Custom texture generation', 'AI-assisted concept brainstorming']
+  },
+  {
+    id: 'premiere-pro',
+    name: 'Premiere Pro',
+    icon: Video,
+    badge: 'Video Editing',
+    tagline: 'Timeline Editing & Audio Sync',
+    stats: { projects: '90+', mastery: '92%', keyTech: 'Lumetri, Essential Sound' },
+    description: 'Timeline editing for showreel assembly, pacing refinement, audio beat synchronization, and final master renders.',
+    features: ['Precision clip timing & pacing', 'Multitrack sound design & audio sync', 'Lumetri color grading', 'Dynamic Link with After Effects']
   }
 ];
 
 export default function App() {
-  // Navigation & UI States
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('All');
   const [selectedSoftware, setSelectedSoftware] = useState(SOFTWARE_DATA[0].id);
@@ -163,18 +175,18 @@ export default function App() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
 
   // Mascot ("Mochi") States
-  const [mascotMood, setMascotMood] = useState('idle'); // idle, happy, amazed, gaming
+  const [mascotMood, setMascotMood] = useState('idle');
   const [mascotTipIndex, setMascotTipIndex] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const mascotTips = [
-    "Hi, I'm Mochi! Welcome to Anamika's Motion Realm!",
-    "Tip: Smooth easing graphs make 2D motion feel organic!",
+    "Hi, I'm Mochi! Welcome to Anamika's Creative Realm!",
+    "Combining digital painting with 2D motion yields ultra-unique visuals!",
     "Check out my Snake & Shapes Game down below!",
-    "All software tabs feature my favorite motion workflows!"
+    "Explore the Software Hub to view Anamika's primary toolkit!"
   ];
 
-  // Showreel Video Player States
+  // Showreel States
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -185,7 +197,6 @@ export default function App() {
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
-  // Track Mouse Coordinates for Mascot Eyes
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePos({ x: e.clientX, y: e.clientY });
@@ -194,33 +205,27 @@ export default function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Filtered Portfolio Items
   const filteredPortfolio = activeTab === 'All'
     ? PORTFOLIO_ITEMS
     : PORTFOLIO_ITEMS.filter(item => item.category === activeTab);
 
-  const categories = ['All', '2D Motion', 'Logo Motion', 'VFX & Compositing', 'Title Sequences'];
+  const categories = ['All', '2D Motion', 'Digital Art', 'Logo Motion', 'VFX & Compositing', 'Title Sequences'];
 
-  // --- SNAKE & SHAPES CANVAS GAME LOGIC ---
+  // Snake Game Logic
   const directionRef = useRef('RIGHT');
   const snakeRef = useRef([
     { x: 10, y: 10 },
     { x: 9, y: 10 },
     { x: 8, y: 10 }
   ]);
-  const foodRef = useRef({ x: 15, y: 10, type: 'star' });
+  const foodRef = useRef({ x: 15, y: 10 });
   const gridSize = 20;
   const tileCount = 20;
 
-  const spawnFood = () => {
-    const types = ['star', 'cube', 'orb'];
-    const randomType = types[Math.floor(Math.random() * types.length)];
-    return {
-      x: Math.floor(Math.random() * tileCount),
-      y: Math.floor(Math.random() * tileCount),
-      type: randomType
-    };
-  };
+  const spawnFood = () => ({
+    x: Math.floor(Math.random() * tileCount),
+    y: Math.floor(Math.random() * tileCount)
+  });
 
   const handleGameKey = (e) => {
     if (!gameRunning) return;
@@ -260,7 +265,6 @@ export default function App() {
       if (directionRef.current === 'LEFT') head.x -= 1;
       if (directionRef.current === 'RIGHT') head.x += 1;
 
-      // Wall Collision Check
       if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
         setGameOver(true);
         setGameRunning(false);
@@ -268,7 +272,6 @@ export default function App() {
         return;
       }
 
-      // Self Collision Check
       for (let segment of snakeRef.current) {
         if (head.x === segment.x && head.y === segment.y) {
           setGameOver(true);
@@ -280,7 +283,6 @@ export default function App() {
 
       const newSnake = [head, ...snakeRef.current];
 
-      // Food Collision
       if (head.x === foodRef.current.x && head.y === foodRef.current.y) {
         setScore(prev => {
           const newScore = prev + 10;
@@ -294,7 +296,6 @@ export default function App() {
 
       snakeRef.current = newSnake;
 
-      // Draw Canvas Frame
       const canvas = canvasRef.current;
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
@@ -302,7 +303,6 @@ export default function App() {
       ctx.fillStyle = '#0F121D';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Draw Grid Lines
       ctx.strokeStyle = '#1E2336';
       ctx.lineWidth = 0.5;
       for (let i = 0; i < canvas.width; i += gridSize) {
@@ -316,35 +316,24 @@ export default function App() {
         ctx.stroke();
       }
 
-      // Draw Food
       const food = foodRef.current;
-      const fx = food.x * gridSize + gridSize / 2;
-      const fy = food.y * gridSize + gridSize / 2;
-
       ctx.fillStyle = '#CCFF00';
       ctx.shadowColor = '#CCFF00';
       ctx.shadowBlur = 10;
       ctx.beginPath();
-      ctx.arc(fx, fy, gridSize / 2.5, 0, Math.PI * 2);
+      ctx.arc(food.x * gridSize + gridSize / 2, food.y * gridSize + gridSize / 2, gridSize / 2.5, 0, Math.PI * 2);
       ctx.fill();
       ctx.shadowBlur = 0;
 
-      // Draw Snake
       snakeRef.current.forEach((segment, index) => {
         ctx.fillStyle = index === 0 ? '#CCFF00' : '#2D5BFF';
-        ctx.fillRect(
-          segment.x * gridSize + 1,
-          segment.y * gridSize + 1,
-          gridSize - 2,
-          gridSize - 2
-        );
+        ctx.fillRect(segment.x * gridSize + 1, segment.y * gridSize + 1, gridSize - 2, gridSize - 2);
       });
     }, 110);
 
     return () => clearInterval(gameInterval);
   }, [gameRunning, highScore]);
 
-  // Handle D-Pad mobile touches
   const setMobileDirection = (dir) => {
     if (!gameRunning) return;
     if (dir === 'UP' && directionRef.current !== 'DOWN') directionRef.current = 'UP';
@@ -356,48 +345,51 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0A0B10] text-[#F3F4F6] font-sans antialiased overflow-x-hidden selection:bg-[#CCFF00] selection:text-[#0A0B10]">
       
-      {/* --- NAVIGATION BAR --- */}
-      <nav className="sticky top-0 z-40 backdrop-blur-md bg-[#0A0B10]/80 border-b border-[#2D5BFF]/20">
+      {/* --- REFINED HEADER & NAVIGATION BAR --- */}
+      <nav className="sticky top-0 z-40 backdrop-blur-xl bg-[#0A0B10]/90 border-b border-[#2D5BFF]/15 transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
-          {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#2D5BFF] to-[#CCFF00] p-[2px] flex items-center justify-center transition-transform group-hover:scale-105">
-              <div className="w-full h-full bg-[#0A0B10] rounded-[10px] flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-[#CCFF00]" />
-              </div>
+          {/* Brand Identity */}
+          <a href="#" className="flex items-center gap-3.5 group focus:outline-none">
+            <div className="w-10 h-10 rounded-xl bg-[#151824] border border-[#2D5BFF]/40 flex items-center justify-center transition-all group-hover:border-[#CCFF00] group-hover:scale-105 shadow-sm">
+              <Sparkles className="w-5 h-5 text-[#CCFF00] transition-transform group-hover:rotate-12" />
             </div>
-            <div>
-              <span className="text-lg font-extrabold tracking-tight block text-[#F3F4F6]">
-                ANAMIKA'S
+            <div className="flex flex-col">
+              <span className="text-sm font-black tracking-wider text-[#F3F4F6] uppercase group-hover:text-[#CCFF00] transition-colors">
+                Anamika's
               </span>
-              <span className="text-xs tracking-widest text-[#2D5BFF] font-semibold uppercase block -mt-1">
+              <span className="text-[11px] tracking-widest text-[#2D5BFF] font-bold uppercase -mt-0.5">
                 Midnight Motion
               </span>
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a href="#showreel" className="hover:text-[#CCFF00] transition-colors">Showreel</a>
-            <a href="#portfolio" className="hover:text-[#CCFF00] transition-colors">Portfolio</a>
-            <a href="#software" className="hover:text-[#CCFF00] transition-colors">Software Hub</a>
-            <a href="#game" className="hover:text-[#CCFF00] transition-colors flex items-center gap-1.5 text-[#CCFF00]">
-              <Gamepad2 className="w-4 h-4" /> Canvas Game
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-[#F3F4F6]/70">
+            <a href="#about" className="hover:text-[#CCFF00] transition-colors py-1">About</a>
+            <a href="#showreel" className="hover:text-[#CCFF00] transition-colors py-1">Showreel</a>
+            <a href="#portfolio" className="hover:text-[#CCFF00] transition-colors py-1">Portfolio</a>
+            <a href="#software" className="hover:text-[#CCFF00] transition-colors py-1">Software Hub</a>
+            <a href="#game" className="hover:text-[#CCFF00] transition-colors flex items-center gap-1.5 text-[#CCFF00] py-1">
+              <Gamepad2 className="w-4 h-4" /> Arcade
             </a>
+          </div>
+
+          {/* Action CTA Button */}
+          <div className="hidden md:flex items-center gap-4">
             <button
               onClick={() => setContactModalOpen(true)}
-              className="px-5 py-2.5 rounded-lg bg-[#2D5BFF] hover:bg-[#2D5BFF]/80 text-[#F3F4F6] font-semibold transition-all shadow-lg shadow-[#2D5BFF]/20 hover:scale-[1.02] active:scale-95"
+              className="px-5 py-2.5 rounded-xl bg-[#2D5BFF] hover:bg-[#2D5BFF]/85 text-[#F3F4F6] text-xs font-bold tracking-wider uppercase transition-all shadow-md shadow-[#2D5BFF]/20 hover:shadow-lg hover:shadow-[#2D5BFF]/30 active:scale-95"
             >
-              Let's Connect
+              Let's Talk
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-[#151824] text-[#F3F4F6] hover:text-[#CCFF00] border border-[#2D5BFF]/30"
-            aria-label="Toggle Navigation Menu"
+            className="md:hidden p-2.5 rounded-xl bg-[#151824] text-[#F3F4F6] hover:text-[#CCFF00] border border-[#2D5BFF]/30 transition-colors focus:outline-none"
+            aria-label="Toggle Mobile Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -405,94 +397,117 @@ export default function App() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#0A0B10]/95 backdrop-blur-xl border-b border-[#2D5BFF]/30 px-4 pt-4 pb-6 space-y-4">
+          <div className="md:hidden bg-[#0A0B10]/98 backdrop-blur-2xl border-b border-[#2D5BFF]/30 px-6 pt-4 pb-8 space-y-3">
+            <a
+              href="#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-4 py-3 rounded-xl text-sm font-semibold hover:bg-[#151824] hover:text-[#CCFF00] transition-colors"
+            >
+              About Me
+            </a>
             <a
               href="#showreel"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2.5 rounded-lg hover:bg-[#151824] hover:text-[#CCFF00]"
+              className="block px-4 py-3 rounded-xl text-sm font-semibold hover:bg-[#151824] hover:text-[#CCFF00] transition-colors"
             >
               Showreel
             </a>
             <a
               href="#portfolio"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2.5 rounded-lg hover:bg-[#151824] hover:text-[#CCFF00]"
+              className="block px-4 py-3 rounded-xl text-sm font-semibold hover:bg-[#151824] hover:text-[#CCFF00] transition-colors"
             >
-              Portfolio
+              Portfolio Works
             </a>
             <a
               href="#software"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2.5 rounded-lg hover:bg-[#151824] hover:text-[#CCFF00]"
+              className="block px-4 py-3 rounded-xl text-sm font-semibold hover:bg-[#151824] hover:text-[#CCFF00] transition-colors"
             >
-              Software Hub
+              Software Toolkit
             </a>
             <a
               href="#game"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2.5 rounded-lg bg-[#2D5BFF]/10 text-[#CCFF00] border border-[#CCFF00]/30"
+              className="block px-4 py-3 rounded-xl text-sm font-semibold bg-[#2D5BFF]/10 text-[#CCFF00] border border-[#CCFF00]/30"
             >
-              Canvas Game
+              Arcade Game
             </a>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 setContactModalOpen(true);
               }}
-              className="w-full text-center py-3 rounded-lg bg-[#2D5BFF] text-[#F3F4F6] font-semibold"
+              className="w-full text-center py-3.5 rounded-xl bg-[#2D5BFF] text-[#F3F4F6] font-bold text-xs uppercase tracking-wider mt-2 shadow-md shadow-[#2D5BFF]/20"
             >
-              Let's Connect
+              Let's Talk
             </button>
           </div>
         )}
       </nav>
 
-      {/* --- HERO SECTION WITH 2D MASCOT "MOCHI" --- */}
-      <header className="relative pt-12 pb-20 md:pt-20 md:pb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* --- REFINED ABOUT / HERO SECTION --- */}
+      <section id="about" className="relative pt-12 pb-20 md:pt-20 md:pb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Glow Spheres */}
-        <div className="absolute top-10 left-1/4 w-72 h-72 bg-[#2D5BFF]/20 rounded-full blur-3xl pointer-events-none" />
+        {/* Subtle Ambient Glows */}
+        <div className="absolute top-12 left-10 w-96 h-96 bg-[#2D5BFF]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#CCFF00]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Text Column */}
+          {/* Main Statement & Biography Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151824] border border-[#2D5BFF]/40 text-xs font-semibold text-[#CCFF00]">
-              <Zap className="w-3.5 h-3.5" /> 2D Motion Graphic Designer & Compositor
+            
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151824] border border-[#2D5BFF]/40 text-xs font-bold text-[#CCFF00] tracking-wide">
+              <Zap className="w-3.5 h-3.5" /> Creative Designer & Motion Artist
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1]">
-              Crafting High-Pacing <br />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-[#F3F4F6]">
+              Visual Design, <br />
               <span className="bg-gradient-to-r from-[#2D5BFF] via-[#5C82FF] to-[#CCFF00] bg-clip-text text-transparent">
-                2D Motion Graphics
-              </span> & Visuals.
+                Digital Painting
+              </span> & Motion.
             </h1>
 
-            <p className="text-base sm:text-lg text-[#F3F4F6]/70 max-w-2xl leading-relaxed">
-              Welcome to <strong className="text-[#F3F4F6]">Anamika's Midnight Motion</strong>. Specialized in dynamic kinetic typography, fluid vector morphing, clean UI explainer animations, and high-impact title sequences.
+            <p className="text-base sm:text-lg text-[#F3F4F6]/80 leading-relaxed font-normal max-w-2xl">
+              Hello, I'm <strong className="text-[#F3F4F6]">Anamika</strong>—a passionate creative designer focused on crafting compelling visual stories. I bridge digital illustration, concept art, and high-pacing 2D animation using a versatile modern toolkit.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Specialized Creative Toolkit Badges */}
+            <div className="pt-2 space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#F3F4F6]/50 block">Core Creative Stack</span>
+              <div className="flex flex-wrap gap-2">
+                {['Photoshop', 'Illustrator', 'After Effects', 'Premiere Pro', 'ComfyUI', 'Krita', 'Digital Painting'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 rounded-lg bg-[#151824] border border-[#2D5BFF]/25 text-xs font-medium text-[#F3F4F6]/90 hover:border-[#CCFF00]/50 transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 pt-4">
               <a
                 href="#portfolio"
-                className="px-6 py-3.5 rounded-xl bg-[#2D5BFF] hover:bg-[#2D5BFF]/80 text-[#F3F4F6] font-bold flex items-center gap-2 shadow-lg shadow-[#2D5BFF]/25 transition-all hover:scale-105"
+                className="px-6 py-3.5 rounded-xl bg-[#2D5BFF] hover:bg-[#2D5BFF]/85 text-[#F3F4F6] text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-[#2D5BFF]/20 transition-all hover:scale-[1.02] active:scale-95"
               >
-                Explore Works <ChevronRight className="w-4 h-4" />
+                View Works <ChevronRight className="w-4 h-4" />
               </a>
               <a
                 href="#showreel"
-                className="px-6 py-3.5 rounded-xl bg-[#151824] hover:bg-[#1E2336] text-[#F3F4F6] font-semibold border border-[#2D5BFF]/30 flex items-center gap-2 transition-all"
+                className="px-6 py-3.5 rounded-xl bg-[#151824] hover:bg-[#1E2336] text-[#F3F4F6] text-xs font-bold uppercase tracking-wider border border-[#2D5BFF]/30 flex items-center gap-2 transition-all hover:border-[#CCFF00]/40"
               >
                 Watch Showreel <Play className="w-4 h-4 text-[#CCFF00]" />
               </a>
             </div>
           </div>
 
-          {/* Right Column: Interactive 2D Mascot "Mochi" */}
+          {/* Interactive Mascot & Studio Card Column */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
             
-            {/* Mascot Tip Bubble */}
+            {/* Interactive Tip Bubble */}
             <div
               onClick={() => setMascotTipIndex((prev) => (prev + 1) % mascotTips.length)}
               className="cursor-pointer mb-4 px-4 py-2.5 rounded-2xl bg-[#151824] border border-[#CCFF00]/40 text-xs text-[#F3F4F6] shadow-xl flex items-center gap-2 hover:border-[#CCFF00] transition-colors"
@@ -501,45 +516,37 @@ export default function App() {
               <span>{mascotTips[mascotTipIndex]}</span>
             </div>
 
-            {/* Mascot Body (SVG Interactive) */}
+            {/* Mascot "Mochi" SVG */}
             <div
               onMouseEnter={() => setMascotMood('happy')}
               onMouseLeave={() => setMascotMood('idle')}
               onClick={() => setMascotMood('amazed')}
               className="w-64 h-64 sm:w-72 sm:h-72 relative cursor-pointer group"
             >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2D5BFF]/30 to-[#CCFF00]/20 blur-2xl group-hover:scale-110 transition-transform" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2D5BFF]/25 to-[#CCFF00]/15 blur-2xl group-hover:scale-110 transition-transform" />
 
               <svg viewBox="0 0 200 200" className="w-full h-full relative z-10 drop-shadow-2xl">
-                {/* Robot Antenna */}
                 <line x1="100" y1="40" x2="100" y2="20" stroke="#2D5BFF" strokeWidth="4" strokeLinecap="round" />
-                <circle x1="100" cy="18" r="6" fill="#CCFF00" className="animate-pulse" />
+                <circle cx="100" cy="18" r="6" fill="#CCFF00" className="animate-pulse" />
 
-                {/* Robot Head */}
                 <rect x="40" y="40" width="120" height="90" rx="20" fill="#151824" stroke="#2D5BFF" strokeWidth="3" />
-                
-                {/* Screen Display */}
                 <rect x="50" y="52" width="100" height="66" rx="12" fill="#0A0B10" stroke="#2D5BFF" strokeWidth="1.5" />
 
-                {/* Interactive Pupil Coordinates */}
                 {(() => {
                   const pupilOffsetX = Math.min(Math.max((mousePos.x - window.innerWidth / 2) / 40, -6), 6);
                   const pupilOffsetY = Math.min(Math.max((mousePos.y - window.innerHeight / 2) / 40, -4), 4);
 
                   return (
                     <g>
-                      {/* Left Eye Socket */}
                       <circle cx="75" cy="80" r="14" fill="#1E2336" stroke="#2D5BFF" strokeWidth="1" />
                       <circle cx={75 + pupilOffsetX} cy={80 + pupilOffsetY} r={mascotMood === 'amazed' ? '8' : '6'} fill="#CCFF00" />
 
-                      {/* Right Eye Socket */}
                       <circle cx="125" cy="80" r="14" fill="#1E2336" stroke="#2D5BFF" strokeWidth="1" />
                       <circle cx={125 + pupilOffsetX} cy={80 + pupilOffsetY} r={mascotMood === 'amazed' ? '8' : '6'} fill="#CCFF00" />
                     </g>
                   );
                 })()}
 
-                {/* Mouth Expressions */}
                 {mascotMood === 'happy' && (
                   <path d="M 80 102 Q 100 114 120 102" fill="none" stroke="#CCFF00" strokeWidth="3" strokeLinecap="round" />
                 )}
@@ -553,20 +560,19 @@ export default function App() {
                   <line x1="85" y1="104" x2="115" y2="104" stroke="#2D5BFF" strokeWidth="3" strokeLinecap="round" />
                 )}
 
-                {/* Neck & Shoulders */}
                 <rect x="85" y="130" width="30" height="12" fill="#1E2336" rx="3" />
                 <path d="M 50 160 Q 100 142 150 160 L 160 185 L 40 185 Z" fill="#151824" stroke="#2D5BFF" strokeWidth="2" />
               </svg>
             </div>
 
             <div className="mt-3 text-center">
-              <span className="text-sm font-bold text-[#F3F4F6]">MOCHI</span>
-              <span className="text-xs text-[#F3F4F6]/50 block">Interactive Assistant</span>
+              <span className="text-xs font-bold tracking-wider uppercase text-[#F3F4F6]">Mochi • 2D Mascot</span>
+              <span className="text-[11px] text-[#F3F4F6]/50 block">Interactive Studio Companion</span>
             </div>
           </div>
 
         </div>
-      </header>
+      </section>
 
       {/* --- SHOWREEL SECTION --- */}
       <section id="showreel" className="py-16 bg-[#0F121D] border-y border-[#2D5BFF]/20">
@@ -575,7 +581,7 @@ export default function App() {
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-[#CCFF00]">Visual Highlights</span>
-              <h2 className="text-3xl font-extrabold tracking-tight text-[#F3F4F6] mt-1">2D Motion Design Showreel</h2>
+              <h2 className="text-3xl font-extrabold tracking-tight text-[#F3F4F6] mt-1">Creative Motion Showreel</h2>
             </div>
             <div className="flex items-center gap-3 text-xs text-[#F3F4F6]/60">
               <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#CCFF00]" /> 60 FPS Master</span>
@@ -583,7 +589,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Video Container */}
           <div className="relative rounded-2xl overflow-hidden bg-[#151824] border border-[#2D5BFF]/30 aspect-video shadow-2xl group">
             <img
               src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1600&q=80"
@@ -591,10 +596,8 @@ export default function App() {
               className={`w-full h-full object-cover transition-transform duration-700 ${isPlaying ? 'scale-105 filter brightness-75' : 'group-hover:scale-102'}`}
             />
 
-            {/* Overlay Gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B10] via-transparent to-transparent opacity-80" />
 
-            {/* Center Play Button Toggle */}
             <div className="absolute inset-0 flex items-center justify-center">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
@@ -604,7 +607,6 @@ export default function App() {
               </button>
             </div>
 
-            {/* Video Controls Bar */}
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 flex items-center justify-between text-xs sm:text-sm font-semibold text-[#F3F4F6]">
               <div className="flex items-center gap-3">
                 <span className="px-2.5 py-1 rounded bg-[#0A0B10]/80 border border-[#2D5BFF]/40 text-[#CCFF00]">
@@ -639,10 +641,9 @@ export default function App() {
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-[#CCFF00]">Selected Creative Works</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#F3F4F6]">Motion & Visual Portfolio</h2>
-          <p className="text-sm text-[#F3F4F6]/60">Filter through recent 2D animation projects, title sequences, and compositing shots.</p>
+          <p className="text-sm text-[#F3F4F6]/60">Filter through recent 2D animations, digital paintings, concept art, and title sequences.</p>
         </div>
 
-        {/* Filter Categories */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           {categories.map((cat) => (
             <button
@@ -659,7 +660,6 @@ export default function App() {
           ))}
         </div>
 
-        {/* Portfolio Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPortfolio.map((item) => (
             <div
@@ -668,7 +668,6 @@ export default function App() {
               className="group bg-[#151824] rounded-2xl overflow-hidden border border-[#2D5BFF]/20 hover:border-[#2D5BFF] transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between"
             >
               <div>
-                {/* Media Aspect Container */}
                 <div className="relative aspect-video overflow-hidden bg-[#0A0B10]">
                   <img
                     src={item.thumbnail}
@@ -683,7 +682,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Card Info */}
                 <div className="p-5 space-y-2">
                   <h3 className="text-lg font-bold text-[#F3F4F6] group-hover:text-[#CCFF00] transition-colors">
                     {item.title}
@@ -694,7 +692,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Card Footer Tools */}
               <div className="px-5 pb-5 pt-2 border-t border-[#2D5BFF]/10 flex items-center justify-between text-[11px] text-[#F3F4F6]/50">
                 <span>{item.software.join(' • ')}</span>
                 <span className="text-[#2D5BFF] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
@@ -713,11 +710,10 @@ export default function App() {
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-[#CCFF00]">Workflow & Toolkit</span>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#F3F4F6]">Software Hub</h2>
-            <p className="text-sm text-[#F3F4F6]/60">Deep dive into my primary design software stack and specialized techniques.</p>
+            <p className="text-sm text-[#F3F4F6]/60">Deep dive into my design software stack across digital painting, motion graphics, and video compositing.</p>
           </div>
 
-          {/* Software Tabs Switcher */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
             {SOFTWARE_DATA.map((sw) => {
               const IconComp = sw.icon;
               const isSelected = selectedSoftware === sw.id;
@@ -725,15 +721,15 @@ export default function App() {
                 <button
                   key={sw.id}
                   onClick={() => setSelectedSoftware(sw.id)}
-                  className={`p-4 rounded-xl border text-left transition-all flex items-center gap-3 ${
+                  className={`p-3.5 rounded-xl border text-left transition-all flex items-center gap-3 ${
                     isSelected
                       ? 'bg-[#2D5BFF] border-[#2D5BFF] text-[#F3F4F6] shadow-lg shadow-[#2D5BFF]/30'
                       : 'bg-[#151824] border-[#2D5BFF]/20 text-[#F3F4F6]/70 hover:bg-[#1E2336]'
                   }`}
                 >
-                  <IconComp className={`w-6 h-6 shrink-0 ${isSelected ? 'text-[#CCFF00]' : 'text-[#2D5BFF]'}`} />
+                  <IconComp className={`w-5 h-5 shrink-0 ${isSelected ? 'text-[#CCFF00]' : 'text-[#2D5BFF]'}`} />
                   <div>
-                    <span className="text-sm font-bold block">{sw.name}</span>
+                    <span className="text-xs font-bold block">{sw.name}</span>
                     <span className="text-[10px] opacity-75">{sw.badge}</span>
                   </div>
                 </button>
@@ -741,7 +737,6 @@ export default function App() {
             })}
           </div>
 
-          {/* Selected Software Detailed Content */}
           {(() => {
             const currentSw = SOFTWARE_DATA.find(s => s.id === selectedSoftware);
             if (!currentSw) return null;
@@ -794,7 +789,6 @@ export default function App() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            {/* Game Info Panel */}
             <div className="lg:col-span-5 space-y-5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2D5BFF]/20 text-[#CCFF00] text-xs font-bold border border-[#CCFF00]/30">
                 <Gamepad2 className="w-4 h-4" /> Canvas Arcade Game
@@ -802,214 +796,9 @@ export default function App() {
 
               <h2 className="text-3xl font-black text-[#F3F4F6]">Snake & Cute Shapes</h2>
               <p className="text-sm text-[#F3F4F6]/70 leading-relaxed">
-                Need a creative break? Play the custom HTML5 Canvas Snake arcade game directly inside my portfolio! Collect glowing shape targets to build up your high score.
+                Take a creative break! Play the custom HTML5 Canvas Snake arcade game directly inside my portfolio! Collect glowing shape targets to build up your high score.
               </p>
 
-              {/* Score Display */}
               <div className="flex items-center gap-6 pt-2">
-                <div className="bg-[#0A0B10] px-4 py-3 rounded-xl border border-[#2D5BFF]/30 min-w-[110px]">
-                  <span className="text-[10px] text-[#F3F4F6]/50 block font-bold uppercase">Current Score</span>
-                  <span className="text-2xl font-black text-[#CCFF00]">{score}</span>
-                </div>
-                <div className="bg-[#0A0B10] px-4 py-3 rounded-xl border border-[#2D5BFF]/30 min-w-[110px]">
-                  <span className="text-[10px] text-[#F3F4F6]/50 block font-bold uppercase">High Score</span>
-                  <span className="text-2xl font-black text-[#2D5BFF]">{highScore}</span>
-                </div>
-              </div>
+                <div
 
-              {/* Controls Notice */}
-              <div className="text-xs text-[#F3F4F6]/50 flex items-center gap-2">
-                <span className="px-2 py-1 rounded bg-[#0A0B10] border border-[#2D5BFF]/30 text-[#F3F4F6] font-mono">WASD / ARROWS</span>
-                <span>or Touch D-Pad to steer</span>
-              </div>
-
-              {!gameRunning && (
-                <button
-                  onClick={startGame}
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#2D5BFF] hover:bg-[#2D5BFF]/80 text-[#F3F4F6] font-bold shadow-lg shadow-[#2D5BFF]/30 flex items-center justify-center gap-2 transition-all"
-                >
-                  {gameOver ? <RotateCcw className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                  {gameOver ? 'Play Again' : 'Start Game'}
-                </button>
-              )}
-            </div>
-
-            {/* Canvas Game Frame */}
-            <div className="lg:col-span-7 flex flex-col items-center justify-center">
-              <div className="relative rounded-2xl overflow-hidden border-2 border-[#2D5BFF]/40 bg-[#0F121D] shadow-2xl">
-                <canvas
-                  ref={canvasRef}
-                  width={400}
-                  height={400}
-                  className="max-w-full h-auto block"
-                />
-
-                {/* Start Overlay */}
-                {!gameRunning && !gameOver && (
-                  <div className="absolute inset-0 bg-[#0A0B10]/85 backdrop-blur-sm flex flex-col items-center justify-center space-y-4 p-6 text-center">
-                    <Trophy className="w-12 h-12 text-[#CCFF00] animate-bounce" />
-                    <h3 className="text-xl font-bold text-[#F3F4F6]">Canvas Snake & Shapes</h3>
-                    <button
-                      onClick={startGame}
-                      className="px-6 py-2.5 rounded-lg bg-[#2D5BFF] text-[#F3F4F6] text-sm font-bold"
-                    >
-                      Press Start
-                    </button>
-                  </div>
-                )}
-
-                {/* Game Over Overlay */}
-                {gameOver && (
-                  <div className="absolute inset-0 bg-[#0A0B10]/90 backdrop-blur-sm flex flex-col items-center justify-center space-y-3 p-6 text-center">
-                    <span className="text-xs font-bold text-[#CCFF00] uppercase tracking-widest">Game Over</span>
-                    <h3 className="text-2xl font-black text-[#F3F4F6]">Final Score: {score}</h3>
-                    <button
-                      onClick={startGame}
-                      className="px-6 py-2.5 rounded-lg bg-[#2D5BFF] text-[#F3F4F6] text-sm font-bold flex items-center gap-2"
-                    >
-                      <RotateCcw className="w-4 h-4" /> Try Again
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              {/* Mobile Touch D-Pad Controls */}
-              {gameRunning && (
-                <div className="mt-4 grid grid-cols-3 gap-2 w-48 lg:hidden">
-                  <div />
-                  <button onClick={() => setMobileDirection('UP')} className="p-3 rounded-lg bg-[#2D5BFF] text-white font-bold text-center">▲</button>
-                  <div />
-                  <button onClick={() => setMobileDirection('LEFT')} className="p-3 rounded-lg bg-[#2D5BFF] text-white font-bold text-center">◄</button>
-                  <button onClick={() => setMobileDirection('DOWN')} className="p-3 rounded-lg bg-[#2D5BFF] text-white font-bold text-center">▼</button>
-                  <button onClick={() => setMobileDirection('RIGHT')} className="p-3 rounded-lg bg-[#2D5BFF] text-white font-bold text-center">►</button>
-                </div>
-              )}
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* --- ARTWORK DETAIL MODAL --- */}
-      {activeArtwork && (
-        <div className="fixed inset-0 z-50 bg-[#0A0B10]/90 backdrop-blur-xl p-4 sm:p-6 overflow-y-auto flex items-center justify-center">
-          <div className="bg-[#151824] rounded-2xl max-w-3xl w-full border border-[#2D5BFF]/40 overflow-hidden relative shadow-2xl my-8">
-            
-            <button
-              onClick={() => setActiveArtwork(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-[#0A0B10]/80 text-[#F3F4F6] hover:text-[#CCFF00] border border-[#2D5BFF]/30 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="aspect-video relative bg-[#0A0B10]">
-              <img src={activeArtwork.thumbnail} alt={activeArtwork.title} className="w-full h-full object-cover" />
-            </div>
-
-            <div className="p-6 sm:p-8 space-y-6">
-              <div>
-                <span className="text-xs font-bold text-[#CCFF00] uppercase tracking-wider">{activeArtwork.category}</span>
-                <h3 className="text-2xl font-black text-[#F3F4F6] mt-1">{activeArtwork.title}</h3>
-              </div>
-
-              <p className="text-sm text-[#F3F4F6]/80 leading-relaxed">{activeArtwork.details}</p>
-
-              {/* Metadata Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-[#0A0B10] border border-[#2D5BFF]/20 text-xs">
-                <div>
-                  <span className="text-[#F3F4F6]/50 block">Client</span>
-                  <span className="font-bold text-[#F3F4F6]">{activeArtwork.client}</span>
-                </div>
-                <div>
-                  <span className="text-[#F3F4F6]/50 block">Frame Rate</span>
-                  <span className="font-bold text-[#CCFF00]">{activeArtwork.fps} FPS</span>
-                </div>
-                <div>
-                  <span className="text-[#F3F4F6]/50 block">Render Time</span>
-                  <span className="font-bold text-[#2D5BFF]">{activeArtwork.renderTime}</span>
-                </div>
-                <div>
-                  <span className="text-[#F3F4F6]/50 block">Duration</span>
-                  <span className="font-bold text-[#F3F4F6]">{activeArtwork.duration}</span>
-                </div>
-              </div>
-
-              <div className="flex justify-end pt-2">
-                <button
-                  onClick={() => setActiveArtwork(null)}
-                  className="px-6 py-2.5 rounded-lg bg-[#2D5BFF] text-[#F3F4F6] text-xs font-bold"
-                >
-                  Close Inspection
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      )}
-
-      {/* --- CONTACT MODAL --- */}
-      {contactModalOpen && (
-        <div className="fixed inset-0 z-50 bg-[#0A0B10]/90 backdrop-blur-xl p-4 overflow-y-auto flex items-center justify-center">
-          <div className="bg-[#151824] rounded-2xl max-w-md w-full border border-[#2D5BFF]/40 p-6 sm:p-8 relative shadow-2xl">
-            
-            <button
-              onClick={() => setContactModalOpen(false)}
-              className="absolute top-4 right-4 p-2 text-[#F3F4F6]/60 hover:text-[#CCFF00]"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <h3 className="text-xl font-extrabold text-[#F3F4F6] mb-2">Let's Create Together</h3>
-            <p className="text-xs text-[#F3F4F6]/60 mb-6">Have a motion graphics project, title sequence, or inquiry? Reach out directly!</p>
-
-            <form onSubmit={(e) => { e.preventDefault(); alert("Thank you! Your message has been sent."); setContactModalOpen(false); }} className="space-y-4 text-xs">
-              <div>
-                <label className="block text-[#F3F4F6]/70 mb-1 font-semibold">Your Name</label>
-                <input required type="text" placeholder="John Doe" className="w-full px-3.5 py-2.5 rounded-lg bg-[#0A0B10] border border-[#2D5BFF]/30 text-[#F3F4F6] focus:border-[#CCFF00] outline-none" />
-              </div>
-              <div>
-                <label className="block text-[#F3F4F6]/70 mb-1 font-semibold">Email Address</label>
-                <input required type="email" placeholder="john@example.com" className="w-full px-3.5 py-2.5 rounded-lg bg-[#0A0B10] border border-[#2D5BFF]/30 text-[#F3F4F6] focus:border-[#CCFF00] outline-none" />
-              </div>
-              <div>
-                <label className="block text-[#F3F4F6]/70 mb-1 font-semibold">Project Details</label>
-                <textarea required rows={4} placeholder="Describe your motion graphic needs..." className="w-full px-3.5 py-2.5 rounded-lg bg-[#0A0B10] border border-[#2D5BFF]/30 text-[#F3F4F6] focus:border-[#CCFF00] outline-none resize-none" />
-              </div>
-              <button type="submit" className="w-full py-3 rounded-lg bg-[#2D5BFF] hover:bg-[#2D5BFF]/80 text-[#F3F4F6] font-bold text-sm shadow-lg shadow-[#2D5BFF]/30">
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* --- FOOTER --- */}
-      <footer className="bg-[#0A0B10] border-t border-[#2D5BFF]/20 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-[#F3F4F6]/50">
-          <div>
-            <span className="font-bold text-[#F3F4F6] text-sm block">Anamika's Midnight Motion</span>
-            <span>© 2026 Anamika Motion. All Rights Reserved.</span>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <a href="https://github.com/AnamikaMotion/MidNightMotions" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-[#151824] hover:text-[#CCFF00] border border-[#2D5BFF]/20">
-              <Github className="w-4 h-4" />
-            </a>
-            <a href="#" className="p-2 rounded-lg bg-[#151824] hover:text-[#CCFF00] border border-[#2D5BFF]/20">
-              <Twitter className="w-4 h-4" />
-            </a>
-            <a href="#" className="p-2 rounded-lg bg-[#151824] hover:text-[#CCFF00] border border-[#2D5BFF]/20">
-              <Instagram className="w-4 h-4" />
-            </a>
-            <a href="#" className="p-2 rounded-lg bg-[#151824] hover:text-[#CCFF00] border border-[#2D5BFF]/20">
-              <Linkedin className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </footer>
-
-    </div>
-  );
-}
